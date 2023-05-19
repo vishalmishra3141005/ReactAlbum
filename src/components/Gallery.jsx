@@ -1,5 +1,5 @@
 
-import Thumbnail from "./Thumbail";
+import Thumbnail from "./AlbumThumbnail"
 import NavBar from "./NavBar";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -25,7 +25,6 @@ export default function Gallery() {
         <>
             <div><button>Add Button</button></div>
             <div className="album-container">
-                {/* <Thumbnail className="album-img" /> */}
                 { albums.map((album) => <Thumbnail 
                     onClick={(e) => clickHandler(album.id)}
                     key={album.id} 
