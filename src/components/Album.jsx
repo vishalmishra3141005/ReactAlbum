@@ -13,21 +13,17 @@ export default function Album({ className }) {
         let responseJson = await response.json();
         setPhotos(responseJson);
     }
-
-    const clickHandler = function() {
-
-    }
     
     useEffect(() => { apiCaller(); }, []);
 
     return (
         <div className="album-container">
             {photos.map((photo) => <Thumbnail
-                onClick={(e) => clickHandler(photo.id)}
                 key={photo.id}
                 thumbnailUrl={photo.thumbnailUrl}
                 className="album-img"
-                title={photo.title} />
+                title={photo.title} 
+                imgId={photo.id} />
             )}
         </div>
     );

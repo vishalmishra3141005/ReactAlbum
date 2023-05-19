@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 
-export default function Thumbnail({ className , title, thumbnailUrl, onClick }) {
+export default function AlbumThumbnail({ className , title, thumbnailUrl, onClick }) {
 
     const [thumbnail, setThumbnail] = useState('');
 

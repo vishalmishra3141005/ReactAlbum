@@ -10,6 +10,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  background-color: rgb(231, 230, 230);
 }
 
 
@@ -31,10 +32,25 @@
   position: absolute;
   top: 0;
   padding: 10px;
+
 }
 
 .img-style {
   object-fit: cover;
   height: 100%;
   width: 100%;
+}
+
+.photo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(231, 230, 230);
+}
+
+.photo-img {
+  height: 500px;
+  width: 500px;
+  
 }

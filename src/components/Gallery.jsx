@@ -1,5 +1,5 @@
 
-import Thumbnail from "./AlbumThumbnail"
+import AlbumThumbnail from "./AlbumThumbnail"
 import NavBar from "./NavBar";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -25,7 +25,7 @@ export default function Gallery() {
         <>
             <div><button>Add Button</button></div>
             <div className="album-container">
-                { albums.map((album) => <Thumbnail 
+                { albums.map((album) => <AlbumThumbnail 
                     onClick={(e) => clickHandler(album.id)}
                     key={album.id} 
                     thumbnailUrl={`https://jsonplaceholder.typicode.com/photos?albumId=${album.id}`} 
