@@ -3,3 +3,38 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+
+.album-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.album-row {
+  display: flex;
+}
+
+.album-img {
+  /* padding: 10px; */
+  border: 1px solid black;
+  margin: 10px;
+  height: 200px;
+  width: 200px;
+  cursor: pointer;
+  position: relative;
+}
+
+.img-label {
+  position: absolute;
+  top: 0;
+  padding: 10px;
+}
+
+.img-style {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
