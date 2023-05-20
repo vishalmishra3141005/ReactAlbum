@@ -23,15 +23,19 @@ export default function Gallery() {
 
     return (
         <>
-            <div><button>Add Button</button></div>
-            <div className="album-container">
-                { albums.map((album) => <AlbumThumbnail 
-                    onClick={(e) => clickHandler(album.id)}
-                    key={album.id} 
-                    thumbnailUrl={`https://jsonplaceholder.typicode.com/photos?albumId=${album.id}`} 
-                    className="album-img" 
-                    title={album.title} />
-                )}
+            <div className="gallery-container">
+                <div className="button-container">
+                    <button className="buttom-style">Add Album</button>
+                </div>
+                <div className="album-container">
+                    { albums.map((album) => <AlbumThumbnail 
+                        onClick={(e) => clickHandler(album.id)}
+                        key={album.id} 
+                        thumbnailUrl={`https://jsonplaceholder.typicode.com/photos?albumId=${album.id}`} 
+                        className="album-img" 
+                        title={album.title} />
+                    )}
+                </div>
             </div>
         </>
     );
