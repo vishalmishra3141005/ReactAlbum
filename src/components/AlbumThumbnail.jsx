@@ -14,6 +14,7 @@ export default function AlbumThumbnail({ title, thumbnailUrl, onClick, onDelete,
         setThumbnail(responseJson[0].thumbnailUrl);
     }
 
+
     const deleteHandler = function(e) {
         e.stopPropagation();
         onDelete(albumId);

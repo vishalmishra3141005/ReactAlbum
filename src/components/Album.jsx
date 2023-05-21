@@ -21,7 +21,8 @@ export default function Album() {
     const clickHandler = function() {
         navigate(-1);
     }
-
+    
+    
     const deleteHandler = function(id) {
         const newPhotos = photos.filter((photo) => photo.id !== id);
         setPhotos(newPhotos);
