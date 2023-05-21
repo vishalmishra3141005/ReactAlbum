@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 
-export default function AlbumThumbnail({ className , title, thumbnailUrl, onClick }) {
+export default function AlbumThumbnail({ title, thumbnailUrl, onClick, onDelete, albumId }) {
 
     const [thumbnail, setThumbnail] = useState('');
 
@@ -14,14 +14,20 @@ export default function AlbumThumbnail({ className , title, thumbnailUrl, onClic
         setThumbnail(responseJson[0].thumbnailUrl);
     }
 
+    const deleteHandler = function(e) {
+        e.stopPropagation();
+        onDelete(albumId);
+    }
+
     useEffect(() => {
         callerApi();
     }, []);
 
     return (
-        <div className={className} onClick={onClick}>
+        <div className="album-img" onClick={onClick}>
             <div className="img-label">{title}</div>
             <img className="img-style" src={thumbnail}></img>
+            <button onClick={deleteHandler} className="delete-button">Delete</button>
         </div>
         
     );

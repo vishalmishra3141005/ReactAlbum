@@ -6,6 +6,7 @@ import Photo from "./components/Photo";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default function App() {
+
   return (
     <div>
       <BrowserRouter>

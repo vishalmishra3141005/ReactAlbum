@@ -1,6 +1,6 @@
 
 import AlbumThumbnail from "./AlbumThumbnail"
-import NavBar from "./NavBar";
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -21,6 +21,13 @@ export default function Gallery() {
         }, []
     );
 
+
+    const deleteHandler = function(albumId) {
+        const newAlbum = albums.filter((album) => album.id !== albumId);
+        setAlbums(newAlbum);
+    }
+
+
     return (
         <>
             <div className="gallery-container">
@@ -32,8 +39,9 @@ export default function Gallery() {
                         onClick={(e) => clickHandler(album.id)}
                         key={album.id} 
                         thumbnailUrl={`https://jsonplaceholder.typicode.com/photos?albumId=${album.id}`} 
-                        className="album-img" 
-                        title={album.title} />
+                        title={album.title} 
+                        onDelete={deleteHandler} 
+                        albumId={album.id} />
                     )}
                 </div>
             </div>

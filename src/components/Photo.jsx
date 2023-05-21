@@ -1,19 +1,20 @@
-import { useState, useEffect, useContext } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 export default function Photo({ className }) {
     const [searchParam, setSearchParam] = useSearchParams();
     const [photo, setPhoto] = useState("");
 
+    const navigate = useNavigate();
     const apiCaller = async function () {
-        let response = await fetch(
-            `https://jsonplaceholder.typicode.com/photos?id=${searchParam.get(
-                "imgId"
-            )}`
-        );
+        let response = await fetch(`https://jsonplaceholder.typicode.com/photos?id=${searchParam.get("imgId")}`)
         let responseJson = await response.json();
         setPhoto(responseJson[0]);
     };
+
+    const buttonHandler = function() {
+        navigate(-1);
+    }
 
     useEffect(() => {
         apiCaller();
@@ -22,7 +23,7 @@ export default function Photo({ className }) {
     return (
         <div className="photo-container">
             <div className="button-container">
-                <button className="buttom-style">Delete Photo</button>
+                <button onClick={(e) => buttonHandler()} className="buttom-style">Back</button>
             </div>
             <span style={{ marginTop: "35px" }}>{photo.title}</span>
             <img className="photo-img" src={photo.url} alt="Photo" />
