@@ -22,6 +22,11 @@ export default function Album() {
         navigate(-1);
     }
 
+    const deleteHandler = function(id) {
+        const newPhotos = photos.filter((photo) => photo.id !== id);
+        setPhotos(newPhotos);
+    }
+
     return (
 
         <div className="gallery-container">
@@ -35,6 +40,7 @@ export default function Album() {
                     thumbnailUrl={photo.thumbnailUrl}
                     title={photo.title}
                     imgId={photo.id}
+                    onDelete={deleteHandler}
                 />
                 )}
             </div>
