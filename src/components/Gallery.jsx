@@ -13,6 +13,8 @@ export default function Gallery() {
         navigate(`/album?albumId=${albumId}`);
     }
 
+    let userId = 200;
+
     useEffect(
         () => {
             fetch("https://jsonplaceholder.typicode.com/albums")
@@ -27,13 +29,26 @@ export default function Gallery() {
         setAlbums(newAlbum);
     }
 
+    const addAlbumHandler = function(e) {
+        setAlbums([ {
+            userId: userId++, 
+            id: userId,
+            title: "New Photo",
+            url: "https://random.imagecdn.app/500/150",
+            thumbnailUrl: "https://random.imagecdn.app/500/150", 
+        }, ...albums]);
+    }
 
     return (
         <>
             <div className="gallery-container">
                 <div className="button-container">
-                    <button className="buttom-style">Add Album</button>
+                    <input onChange={addAlbumHandler} multiple type="file" id="imgupload" style={{display: "none"}} />
+                    <label htmlFor="imgupload">
+                        <div className="buttom-style">Add Album</div>
+                    </label>
                 </div>
+                
                 <div className="album-container">
                     { albums.map((album) => <AlbumThumbnail 
                         onClick={(e) => clickHandler(album.id)}
